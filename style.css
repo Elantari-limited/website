@@ -1,0 +1,378 @@
+/* Elantari Limited — minimal, professional site CSS.
+   Single file, no preprocessor, no framework. */
+
+:root {
+    --ink:       #0F172A;
+    --ink-soft:  #1E293B;
+    --muted:     #475569;
+    --muted-2:   #94A3B8;
+    --line:      #E2E8F0;
+    --bg:        #FFFFFF;
+    --bg-alt:    #F8FAFC;
+    --accent:    #0E7C66;
+    --accent-2:  #0B5A4A;
+    --max:       72rem;
+    --radius:    4px;
+    --serif:     'Playfair Display', Georgia, serif;
+    --sans:      'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+                 'Helvetica Neue', Arial, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+    margin: 0;
+    color: var(--ink);
+    background: var(--bg);
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { transition: none !important; animation: none !important; }
+}
+
+a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 120ms ease, color 120ms ease;
+}
+a:hover, a:focus-visible {
+    color: var(--accent-2);
+    border-bottom-color: currentColor;
+    outline: none;
+}
+
+.container {
+    width: 100%;
+    max-width: var(--max);
+    padding: 0 1.5rem;
+    margin: 0 auto;
+}
+
+.visually-hidden {
+    position: absolute !important;
+    width: 1px; height: 1px;
+    margin: -1px; padding: 0;
+    overflow: hidden; clip: rect(0,0,0,0);
+    border: 0; white-space: nowrap;
+}
+
+/* ---------- Header / nav ---------- */
+
+.site-header {
+    position: sticky; top: 0; z-index: 50;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.85rem 1.5rem;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: saturate(140%) blur(12px);
+    border-bottom: 1px solid var(--line);
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    color: var(--ink);
+    border: 0;
+}
+.brand:hover, .brand:focus-visible { color: var(--ink-soft); }
+.brand-mark {
+    height: 38px; width: auto;
+    display: block;
+}
+.brand-text {
+    display: inline-flex; flex-direction: column; line-height: 1;
+}
+.brand-name {
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: 1.25rem;
+    letter-spacing: 0.01em;
+}
+.brand-tag {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--muted);
+    margin-top: 0.15rem;
+}
+
+.primary-nav { display: flex; align-items: center; }
+.primary-nav ul {
+    display: flex;
+    gap: 1.75rem;
+    list-style: none;
+    margin: 0; padding: 0;
+}
+.primary-nav a {
+    color: var(--ink);
+    font-weight: 500;
+    font-size: 0.97rem;
+    border-bottom: 1px solid transparent;
+}
+.primary-nav a:hover, .primary-nav a:focus-visible {
+    color: var(--accent);
+    border-bottom-color: currentColor;
+}
+
+.nav-toggle {
+    display: none;
+    background: none; border: 0;
+    cursor: pointer;
+    width: 40px; height: 40px;
+    padding: 0;
+}
+.nav-toggle .bars,
+.nav-toggle .bars::before,
+.nav-toggle .bars::after {
+    content: '';
+    display: block;
+    width: 22px; height: 2px;
+    background: var(--ink);
+    transition: transform 200ms ease, top 200ms ease, opacity 120ms ease;
+}
+.nav-toggle .bars { position: relative; margin: 0 auto; }
+.nav-toggle .bars::before { position: absolute; top: -7px; }
+.nav-toggle .bars::after  { position: absolute; top:  7px; }
+.nav-toggle[aria-expanded="true"] .bars { background: transparent; }
+.nav-toggle[aria-expanded="true"] .bars::before { top: 0; transform: rotate(45deg); }
+.nav-toggle[aria-expanded="true"] .bars::after  { top: 0; transform: rotate(-45deg); }
+
+@media (max-width: 720px) {
+    .nav-toggle { display: block; }
+    .primary-nav ul {
+        position: absolute;
+        top: 100%; left: 0; right: 0;
+        flex-direction: column;
+        gap: 0;
+        background: var(--bg);
+        border-bottom: 1px solid var(--line);
+        padding: 0.5rem 1.5rem 1rem;
+        max-height: 0; overflow: hidden;
+        transition: max-height 200ms ease;
+    }
+    .primary-nav.is-open ul {
+        max-height: 22rem;
+    }
+    .primary-nav ul li { padding: 0.5rem 0; border-bottom: 1px solid var(--line); }
+    .primary-nav ul li:last-child { border-bottom: 0; }
+}
+
+/* ---------- Hero ---------- */
+
+.kicker {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--accent);
+    margin: 0 0 1rem;
+    font-weight: 600;
+}
+
+.hero {
+    padding: 5rem 0 4.5rem;
+}
+
+.hero h1 {
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: clamp(2rem, 4.4vw, 3.5rem);
+    line-height: 1.1;
+    margin: 0 0 1.4rem;
+    max-width: 24ch;
+    letter-spacing: -0.01em;
+}
+
+.hero .lead {
+    color: var(--muted);
+    font-size: 1.05rem;
+    max-width: 64ch;
+    margin: 0 0 3rem;
+}
+
+.vision-pillars {
+    list-style: none;
+    margin: 0; padding: 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+    border-top: 1px solid var(--line);
+    padding-top: 2.5rem;
+}
+.vision-pillars li {
+    padding-right: 1rem;
+}
+.pillar-num {
+    font-family: var(--serif);
+    color: var(--accent);
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+}
+.vision-pillars h3 {
+    margin: 0.5rem 0 0.4rem;
+    font-size: 1.05rem;
+    font-weight: 600;
+}
+.vision-pillars p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.93rem;
+    line-height: 1.55;
+}
+
+@media (max-width: 900px) {
+    .vision-pillars { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 520px) {
+    .vision-pillars { grid-template-columns: 1fr; gap: 1.5rem; }
+    .hero { padding: 3.5rem 0 3rem; }
+}
+
+/* ---------- Sections ---------- */
+
+.section { padding: 4.5rem 0; }
+.section-alt { background: var(--bg-alt); }
+
+.section-head {
+    margin-bottom: 2.25rem;
+    max-width: 64ch;
+}
+.section-head h2 {
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: clamp(1.6rem, 2.6vw, 2.25rem);
+    line-height: 1.15;
+    margin: 0 0 0.6rem;
+    letter-spacing: -0.005em;
+}
+.section-sub {
+    color: var(--muted);
+    margin: 0.5rem 0 0;
+    font-size: 1.02rem;
+}
+
+/* ---------- Team ---------- */
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.75rem;
+}
+@media (max-width: 720px) {
+    .team-grid { grid-template-columns: 1fr; }
+}
+.member {
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 1.75rem;
+    background: var(--bg);
+}
+.section-alt .member { background: var(--bg); }
+.member h3 {
+    margin: 0 0 0.25rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+.member-role {
+    color: var(--accent);
+    font-size: 0.92rem;
+    font-weight: 500;
+    margin: 0 0 1rem;
+}
+.member p { color: var(--muted); margin: 0 0 1rem; font-size: 0.97rem; }
+.member-links {
+    list-style: none;
+    margin: 0; padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+}
+.member-links a {
+    font-size: 0.92rem;
+    font-weight: 500;
+}
+
+/* ---------- ClimaGuard prose ---------- */
+
+.prose { max-width: 64ch; }
+.prose h3 {
+    font-family: var(--serif);
+    margin: 2.25rem 0 0.6rem;
+    font-size: 1.35rem;
+    font-weight: 600;
+}
+.prose p { margin: 0 0 1rem; }
+.prose strong { color: var(--ink); font-weight: 600; }
+
+dl.kv {
+    margin: 1rem 0 1.5rem;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.85rem 1.5rem;
+}
+@media (min-width: 720px) {
+    dl.kv {
+        grid-template-columns: 14rem 1fr;
+        align-items: baseline;
+    }
+}
+dl.kv dt {
+    font-weight: 600;
+    color: var(--ink-soft);
+}
+dl.kv dd {
+    margin: 0;
+    color: var(--muted);
+}
+
+.diagram, .demo {
+    margin: 2.5rem 0 0;
+}
+.diagram img, .demo video {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: var(--radius);
+    border: 1px solid var(--line);
+    background: var(--bg);
+}
+.diagram figcaption, .demo figcaption {
+    margin-top: 0.75rem;
+    color: var(--muted);
+    font-size: 0.92rem;
+}
+
+/* ---------- Contact ---------- */
+
+.contact {
+    font-style: normal;
+    color: var(--muted);
+}
+.contact p { margin: 0 0 0.8rem; }
+.contact a {
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+/* ---------- Footer ---------- */
+
+.site-footer {
+    border-top: 1px solid var(--line);
+    padding: 2rem 0;
+    color: var(--muted-2);
+    font-size: 0.88rem;
+}
+.site-footer p { margin: 0; }
