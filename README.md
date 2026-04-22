@@ -42,7 +42,7 @@ open http://localhost:8000
 
 ## Deployment — GitHub Pages with the elantari.org custom domain
 
-1. **Push to a public repo** (e.g. `elantari-org/website`):
+1. **Push to a public repo** (e.g. `elantari-limited/website`):
 
    ```
    cd elantari-website
@@ -50,7 +50,7 @@ open http://localhost:8000
    git add .
    git commit -m "Initial site"
    git branch -M main
-   git remote add origin git@github.com:elantari-org/website.git
+   git remote add origin git@github.com:elantari-limited/website.git
    git push -u origin main
    ```
 
@@ -67,7 +67,7 @@ open http://localhost:8000
    | A     | @    | 185.199.109.153        | auto |
    | A     | @    | 185.199.110.153        | auto |
    | A     | @    | 185.199.111.153        | auto |
-   | CNAME | www  | elantari-org.github.io.| auto |
+   | CNAME | www  | elantari-limited.github.io.| auto |
 
    Wait 5–30 min for propagation. Then back on GitHub Pages, tick
    "Enforce HTTPS" — it goes live once Let's Encrypt issues the cert
