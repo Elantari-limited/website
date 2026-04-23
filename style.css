@@ -208,7 +208,7 @@ a:hover, a:focus-visible {
         gap: 1.75rem;
     }
     .hero-logo {
-        max-width: 260px;
+        max-width: 200px;
         justify-self: center;
     }
     .hero .vision-pillars { margin-top: 2rem; }
