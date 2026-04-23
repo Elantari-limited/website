@@ -87,19 +87,9 @@ a:hover, a:focus-visible {
     border: 0;
 }
 .brand:hover, .brand:focus-visible { color: var(--ink-soft); }
-.brand-mark {
-    height: 52px; width: auto;
-    display: block;
-}
-/* When the logo image is present it already includes the "ELANTARI LIMITED"
-   wordmark, so hide the adjacent text. If the image fails to load, the
-   onerror handler adds .brand--no-logo and the text wordmark is revealed. */
 .brand-text {
-    display: none;
-    flex-direction: column; line-height: 1;
-}
-.brand--no-logo .brand-text {
     display: inline-flex;
+    flex-direction: column; line-height: 1;
 }
 .brand-name {
     font-family: var(--serif);
@@ -189,6 +179,29 @@ a:hover, a:focus-visible {
 
 .hero {
     padding: 5rem 0 4.5rem;
+}
+
+.hero-intro {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 2.5rem;
+    align-items: center;
+}
+.hero-logo {
+    width: clamp(140px, 20vw, 240px);
+    height: auto;
+    display: block;
+    justify-self: end;
+}
+@media (max-width: 720px) {
+    .hero-intro {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    .hero-logo {
+        width: 140px;
+        justify-self: start;
+    }
 }
 
 .hero h1 {
