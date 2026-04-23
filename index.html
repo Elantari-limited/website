@@ -92,7 +92,7 @@
 
                 <article class="member">
                     <h3>Philine Lou Bommer</h3>
-                    <p class="member-role">Encode AI for Science Fellow · University of Edinburgh</p>
+                    <p class="member-role">Director · Encode AI for Science Fellow · University of Edinburgh</p>
                     <p>
                         Philine Lou Bommer is an Encode AI for Science Fellow working
                         with Prof. Gabriele Hegerl at the University of Edinburgh
@@ -113,11 +113,20 @@
 
                 <article class="member">
                     <h3>Carla Marie Roesch</h3>
-                    <p class="member-role">Renaissance Philanthropy</p>
+                    <p class="member-role">Director · University of Edinburgh</p>
+                    <p>
+                        Carla is a climate scientist who leverages machine learning to 
+                        quantify aerosol impacts and predict tipping points in the climate system. 
+                        Carla is a climate scientist who leverages machine learning to quantify aerosol impacts in the climate system and to develop novel causal discovery algorithms to study climate variability. As part of ARIA’s Forecasting Tipping Points programme, she is developing a deep learning–based early warning system for critical changes in the North Atlantic. She earned her PhD in Atmospheric Sciences from the University of Edinburgh as part of the iMIRACLI Marie Skłodowska‑Curie ITN, where her thesis focused on large‑scale aerosol effects. 
+                        Prior to that, she completed both her BSc and MSc in Physics at Ruprecht-Karls University Heidelberg.
+                        Currently, she works as an independet researcher and ARC Fellow. 
+                        In collaboration with Columbia University, she develops novel causal discovery and 
+                        deep-learning algorithms to study climate variability. In addition, she is contributing to research for deep learning–based early warning system assessing  
+                        critical changes in our climate. 
+                    </p>
                     <ul class="member-links">
                         <li><a href="https://www.linkedin.com/in/carla-roesch-7595a4223/" rel="noopener" target="_blank">LinkedIn</a></li>
                         <li><a href="https://scholar.google.co.uk/citations?user=ZiIfoq8AAAAJ&hl=en&oi=ao" rel="noopener" target="_blank">Google Scholar</a></li>
-                        <li><a href="https://arc.renaissancephilanthropy.org/person/carla-roesch/" rel="noopener" target="_blank">Renaissance</a></li>
                     </ul>
                 </article>
 
@@ -133,9 +142,16 @@
                 <p class="section-sub">
                     A novel, open-source framework that bridges the gap between
                     high-fidelity climate modelling and computational feasibility
-                    for solar-radiation-management research.
+                    for solar-radiation-management governance and research.
                 </p>
             </header>
+
+            <figure class="diagram">
+                <img src="assets/climaguard.png" alt="ClimaGuard architecture: AI climate forecast and risk assessment loop, showing NeuralGCM, evolved future climate and risks, and the explainability/decision feedback to domain experts and governance." onerror="this.style.opacity='0.4'" />
+                <figcaption>
+                    ClimaGuard's hybrid forecast-and-risk-assessment loop, leveraging an adaptation of <a href="https://www.nature.com/articles/s41586-024-07744-y" target="_blank" rel="noopener">NeuralGCM</a>.
+                </figcaption>
+            </figure>
 
             <div class="prose">
                 <p>
@@ -220,15 +236,15 @@
                     unprecedented speed and transparency.
                 </p>
             </div>
+        </section>
 
-            <figure class="diagram">
-                <img src="assets/climaguard.png" alt="ClimaGuard architecture: AI climate forecast and risk assessment loop, showing NeuralGCM, evolved future climate and risks, and the explainability/decision feedback to domain experts and governance." onerror="this.style.opacity='0.4'" />
-                <figcaption>
-                    ClimaGuard's hybrid forecast-and-risk-assessment loop.
-                </figcaption>
-            </figure>
-
-            <figure class="demo">
+    <section class="section section-alt" id="Tools">
+        <div class="container">
+            <div class="prose"> We aim to deploy ClimaGuard as a webtool providing fair and equal access to climate intervention insights.
+                The webtool will allow users to explore their own intervention scenarios by uploading the inital conditions as data files. 
+                In a later version, we also plan to provide a user-friendly LLM interface for adjusting the intervention parameters directly on the webtool, without needing to upload data files.
+            </div>
+                <figure class="demo">
                 <video
                     src="assets/climaguard-demo.mp4"
                     poster="assets/climaguard-demo-poster.jpg"
@@ -242,7 +258,7 @@
                 </video>
                 <figcaption>Demo: ClimaGuard interactive forecast (no audio).</figcaption>
             </figure>
-        </div>
+        <div>
     </section>
 
     <section class="section" id="contact">
@@ -275,3 +291,4 @@
 <script src="script.js" defer></script>
 </body>
 </html>
+
